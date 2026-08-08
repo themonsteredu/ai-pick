@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import { APP_TITLE } from "@/lib/brand";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI 선택 훈련소",
+  title: APP_TITLE,
   description:
     "문제에 맞는 도구를 고르고, 좋은 질문을 만들고, 답을 검증하는 힘을 기르는 중학생 AI 리터러시 수업",
 };

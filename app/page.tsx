@@ -2,11 +2,12 @@ import Link from "next/link";
 import { AppHeader } from "@/components/AppHeader";
 import { AppImage } from "@/components/AppImage";
 import { LevelGuide } from "@/components/LevelGuide";
+import { APP_TAGLINE } from "@/lib/brand";
 
 export default function HomePage() {
   return (
     <main className="app-shell">
-      <AppHeader subtitle="문제에 맞는 도구를 고르는 힘을 기르는 수업" />
+      <AppHeader subtitle={APP_TAGLINE} />
 
       <section className="card">
         <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
