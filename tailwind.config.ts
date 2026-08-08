@@ -8,6 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // 에스코어드림 (자세한 설정은 app/globals.css 위쪽)
+        sans: [
+          "S-Core Dream",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Apple SD Gothic Neo",
+          "Noto Sans KR",
+          "Malgun Gothic",
+          "system-ui",
+          "sans-serif",
+        ],
+      },
       colors: {
         // 4단계 색 (사람=회색, 빠른 AI=연두, 생각하는 AI=파랑, 깊게 파는 AI=보라)
         person: "#64748b",

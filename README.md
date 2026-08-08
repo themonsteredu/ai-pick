@@ -52,6 +52,30 @@ http://localhost:3000
 
 ---
 
+## 글꼴 — 에스코어드림
+
+제목과 본문 모두 **에스코어드림(S-Core Dream)** 을 씁니다. (무료 사용 가능 글꼴)
+
+굵기는 3종만 불러옵니다. 인터넷에서 자동으로 받아오므로 따로 설치할 게 없습니다.
+
+| 쓰이는 곳 | 굵기 |
+|---|---|
+| 본문 | Regular |
+| 버튼 · 소제목 | Bold |
+| 큰 제목 · 수업코드 | Black (아주 굵게) |
+
+### 만약 학교 인터넷이 글꼴을 막는다면
+
+교실에서 글자가 기본 글꼴로 보인다면, 글꼴 파일을 우리 서버에 직접 넣으면 됩니다.
+
+1. `https://github.com/fonts-archive/S-CoreDream` 에서
+   `SCDreamRegular.woff2`, `SCDreamBold.woff2`, `SCDreamBlack.woff2` 3개를 내려받습니다.
+2. `public/fonts/` 폴더를 만들고 그 안에 넣습니다.
+3. `app/globals.css` 맨 위의 주소 3곳에서
+   `https://cdn.jsdelivr.net/gh/fonts-archive/S-CoreDream/` 부분을 `/fonts/` 로 바꿉니다.
+
+---
+
 ## Supabase 연결하기 (실제 수업 전에 한 번만)
 
 1. [supabase.com](https://supabase.com) 에서 무료 프로젝트를 만듭니다.

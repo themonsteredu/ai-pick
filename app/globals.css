@@ -2,6 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────────
+   에스코어드림 (S-Core Dream) 글꼴
+   - 무료로 쓸 수 있는 한글 글꼴입니다.
+   - 굵기 3종만 불러옵니다. (본문 / 굵게 / 아주 굵게)
+   - 글꼴이 늦게 도착해도 글자는 바로 보입니다. (font-display: swap)
+
+   ※ 학교 인터넷이 아래 주소(cdn.jsdelivr.net)를 막는 경우에는
+     README의 "글꼴을 우리 서버에 직접 넣기" 부분을 따라 하세요.
+   ───────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "S-Core Dream";
+  font-weight: 100 400; /* 본문 */
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/fonts-archive/S-CoreDream/SCDreamRegular.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/fonts-archive/S-CoreDream/SCDreamRegular.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "S-Core Dream";
+  font-weight: 500 700; /* 굵게 (버튼·소제목) */
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/fonts-archive/S-CoreDream/SCDreamBold.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/fonts-archive/S-CoreDream/SCDreamBold.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "S-Core Dream";
+  font-weight: 800 900; /* 아주 굵게 (큰 제목·수업코드) */
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/fonts-archive/S-CoreDream/SCDreamBlack.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/fonts-archive/S-CoreDream/SCDreamBlack.woff")
+      format("woff");
+}
+
 :root {
   color-scheme: light;
 }
@@ -13,10 +55,20 @@ body {
 
 body {
   @apply bg-slate-50 text-slate-900 antialiased;
-  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Noto Sans KR", "Malgun Gothic", "맑은 고딕", system-ui, sans-serif;
+  font-family: "S-Core Dream", -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "맑은 고딕", system-ui,
+    sans-serif;
   /* 교실 뒤에서도 보이게 기본 글씨를 크게 */
   font-size: 18px;
+}
+
+/* 한글 제목은 자간을 살짝 좁혀야 덩어리로 보인다 */
+h1,
+h2,
+h3,
+.font-title {
+  letter-spacing: -0.025em;
+  word-break: keep-all; /* 한글 단어가 중간에서 잘리지 않게 */
 }
 
 @layer components {

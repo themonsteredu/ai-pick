@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AppHeader } from "@/components/AppHeader";
+import { AppImage } from "@/components/AppImage";
 import { LevelGuide } from "@/components/LevelGuide";
 
 export default function HomePage() {
@@ -8,23 +9,34 @@ export default function HomePage() {
       <AppHeader subtitle="문제에 맞는 도구를 고르는 힘을 기르는 수업" />
 
       <section className="card">
-        <h1 className="text-3xl font-black leading-snug sm:text-4xl">
-          가장 비싼 AI를 쓰는 사람이
-          <br />
-          AI를 잘 쓰는 사람일까?
-        </h1>
-        <p className="mt-4 text-step text-slate-600">
-          문제에 맞는 도구를 고르고, 좋은 질문을 만들고, 답을 검증하는 사람이
-          <br className="hidden sm:block" /> AI를 잘 쓰는 사람입니다.
-        </p>
+        <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
+          <div>
+            <h1 className="text-3xl font-black leading-snug sm:text-4xl">
+              가장 비싼 AI를 쓰는 사람이
+              <br />
+              AI를 잘 쓰는 사람일까?
+            </h1>
+            <p className="mt-4 text-step text-slate-600">
+              문제에 맞는 도구를 고르고, 좋은 질문을 만들고, 답을 검증하는 사람이
+              AI를 잘 쓰는 사람입니다.
+            </p>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          <Link href="/join" className="btn-primary w-full py-6 text-xl">
-            학생 입장하기
-          </Link>
-          <Link href="/teacher" className="btn-secondary w-full py-6 text-xl">
-            선생님 화면
-          </Link>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <Link href="/join" className="btn-primary w-full py-6 text-xl">
+                학생 입장하기
+              </Link>
+              <Link href="/teacher" className="btn-secondary w-full py-6 text-xl">
+                선생님 화면
+              </Link>
+            </div>
+          </div>
+
+          <AppImage
+            name="intro-scene.png"
+            alt="교실에서 노트북 앞에 앉아 어떤 도구를 쓸지 고민하는 학생"
+            className="h-auto w-full"
+            rounded="rounded-3xl"
+          />
         </div>
       </section>
 
