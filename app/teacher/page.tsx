@@ -104,7 +104,7 @@ export default function TeacherPage() {
         <section className="card">
           <h1 className="text-3xl font-black">수업 만들기</h1>
           <p className="mt-3 text-lg text-slate-600">
-            버튼을 누르면 수업코드가 나옵니다. 그 코드를 학생들에게 알려주세요.
+            버튼을 누르면 학생에게 알려줄 수업코드가 나옵니다.
           </p>
 
           <div className="mt-6">
@@ -170,8 +170,7 @@ export default function TeacherPage() {
           {teacher.code}
         </p>
         <p className="text-lg text-slate-600">
-          학생은 <b>{joinUrl.replace(/^https?:\/\//, "").split("/join")[0]}/join</b> 에서
-          이 코드를 입력합니다.
+          {joinUrl.replace(/^https?:\/\//, "")}
         </p>
 
         <button
@@ -230,8 +229,7 @@ export default function TeacherPage() {
 
       {sessionData?.storage === "memory" && (
         <p className="mt-6 rounded-2xl bg-amber-50 px-5 py-4 text-base font-bold text-amber-800">
-          지금은 임시 저장 상태입니다. 서버를 껐다 켜면 이 수업 기록이 사라집니다.
-          실제 수업 전에 Supabase 연결을 해두세요. (README 참고)
+          임시 저장 상태 — 서버를 껐다 켜면 기록이 사라집니다. (README 참고)
         </p>
       )}
     </main>

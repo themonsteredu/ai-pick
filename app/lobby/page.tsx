@@ -72,9 +72,7 @@ export default function LobbyPage() {
           입장 완료!
         </h1>
         <p className="mt-4 text-step text-slate-600">
-          선생님이 시작할 때까지 잠시만 기다려 주세요.
-          <br />
-          화면을 그대로 두면 자동으로 다음 화면으로 넘어갑니다.
+          선생님이 시작할 때까지 기다려 주세요.
         </p>
 
         {data && (
@@ -91,8 +89,8 @@ export default function LobbyPage() {
       </section>
 
       <section className="mt-8">
-        <h2 className="mb-3 text-xl font-black">기다리는 동안 읽어보기 — 오늘의 4단계</h2>
-        <LevelGuide />
+        <h2 className="mb-3 text-xl font-black">오늘 쓸 4단계</h2>
+        <LevelGuide detailed />
       </section>
     </main>
   );

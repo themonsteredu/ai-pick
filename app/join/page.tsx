@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AppHeader } from "@/components/AppHeader";
-import { LevelGuide } from "@/components/LevelGuide";
 import { loadStudent, saveStudent } from "@/lib/client/storage";
 
 export default function JoinPage() {
@@ -114,9 +113,7 @@ export default function JoinPage() {
             className="field"
           />
         </div>
-        <p className="mb-6 text-sm text-slate-500">
-          진짜 이름은 쓰지 마세요. 친구가 알아볼 수 있는 별명이면 충분해요.
-        </p>
+        <p className="mb-6 text-sm text-slate-500">진짜 이름은 쓰지 마세요.</p>
 
         {error && (
           <p className="mb-4 rounded-2xl bg-rose-50 px-5 py-4 text-lg font-bold text-rose-700">
@@ -128,11 +125,6 @@ export default function JoinPage() {
           {busy ? "들어가는 중…" : "입장하기"}
         </button>
       </form>
-
-      <section className="mt-8">
-        <h2 className="mb-3 text-xl font-black">오늘 쓸 4단계 미리보기</h2>
-        <LevelGuide compact />
-      </section>
     </main>
   );
 }

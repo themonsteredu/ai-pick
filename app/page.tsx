@@ -17,8 +17,7 @@ export default function HomePage() {
               AI를 잘 쓰는 사람일까?
             </h1>
             <p className="mt-4 text-step text-slate-600">
-              문제에 맞는 도구를 고르고, 좋은 질문을 만들고, 답을 검증하는 사람이
-              AI를 잘 쓰는 사람입니다.
+              고르고, 묻고, 검증하는 사람이 잘 쓰는 사람입니다.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -46,7 +45,7 @@ export default function HomePage() {
       </section>
 
       <p className="mt-8 text-center text-sm text-slate-400">
-        이 수업은 이름·연락처 같은 개인정보를 받지 않습니다. 닉네임만 사용합니다.
+        닉네임만 사용합니다. 개인정보를 받지 않습니다.
       </p>
     </main>
   );
