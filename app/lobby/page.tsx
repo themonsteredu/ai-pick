@@ -1,41 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AppHeader } from "@/components/AppHeader";
 import { LevelGuide } from "@/components/LevelGuide";
-import { useHeartbeat, usePoll } from "@/lib/client/poll";
-import { clearStudent, loadStudent, type StudentSession } from "@/lib/client/storage";
-import type { ClassSession } from "@/lib/types";
-
-interface SessionPayload {
-  ok: true;
-  session: ClassSession;
-  joinedCount: number;
-  activeCount: number;
-}
+import { useStepGate } from "@/lib/client/gate";
+import { clearStudent } from "@/lib/client/storage";
 
 export default function LobbyPage() {
   const router = useRouter();
-  const [student, setStudent] = useState<StudentSession | null>(null);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    const saved = loadStudent();
-    if (!saved) {
-      router.replace("/join");
-      return;
-    }
-    setStudent(saved);
-    setReady(true);
-  }, [router]);
-
-  const { data, error } = usePoll<SessionPayload>(
-    student ? `/api/sessions/${student.code}` : null,
-    2000,
-  );
-
-  useHeartbeat(student?.code ?? null, student?.participantId ?? null);
+  const { student, ready, activeCount, error } = useStepGate("lobby");
 
   if (!ready || !student) {
     return (
@@ -68,18 +41,14 @@ export default function LobbyPage() {
           <span className="h-5 w-5 animate-ping rounded-full bg-sky-500" />
         </div>
 
-        <h1 className="text-3xl font-black leading-snug sm:text-4xl">
-          입장 완료!
-        </h1>
+        <h1 className="text-3xl font-black leading-snug sm:text-4xl">입장 완료!</h1>
         <p className="mt-4 text-step text-slate-600">
           선생님이 시작할 때까지 기다려 주세요.
         </p>
 
-        {data && (
-          <p className="mt-6 inline-block rounded-2xl bg-slate-100 px-6 py-3 text-xl font-black">
-            지금 들어온 친구 {data.activeCount}명
-          </p>
-        )}
+        <p className="mt-6 inline-block rounded-2xl bg-slate-100 px-6 py-3 text-xl font-black">
+          지금 들어온 친구 {activeCount}명
+        </p>
 
         {error && (
           <p className="mt-6 rounded-2xl bg-amber-50 px-5 py-4 text-base font-bold text-amber-700">

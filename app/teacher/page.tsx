@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { AppHeader } from "@/components/AppHeader";
 import { usePoll } from "@/lib/client/poll";
 import {
@@ -173,21 +174,26 @@ export default function TeacherPage() {
           {joinUrl.replace(/^https?:\/\//, "")}
         </p>
 
-        <button
-          type="button"
-          onClick={async () => {
-            try {
-              await navigator.clipboard.writeText(joinUrl);
-              setCopied(true);
-              setTimeout(() => setCopied(false), 2000);
-            } catch {
-              setCopied(false);
-            }
-          }}
-          className="btn-secondary mt-5"
-        >
-          {copied ? "복사했어요!" : "입장 주소 복사하기"}
-        </button>
+        <div className="mt-5 flex flex-wrap justify-center gap-3">
+          <button
+            type="button"
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(joinUrl);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+              } catch {
+                setCopied(false);
+              }
+            }}
+            className="btn-secondary"
+          >
+            {copied ? "복사했어요!" : "입장 주소 복사하기"}
+          </button>
+          <Link href="/teacher/live" className="btn-primary">
+            수업 시작하기 →
+          </Link>
+        </div>
       </section>
 
       <section className="mt-6 grid gap-4 sm:grid-cols-2">
