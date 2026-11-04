@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>AI 잘 부려먹기 홍보영상</title>
+<style>
+@font-face{font-family:"S-Core Dream";font-weight:100 400;src:url(fonts/SCDreamRegular.woff2) format("woff2")}
+@font-face{font-family:"S-Core Dream";font-weight:500 700;src:url(fonts/SCDreamBold.woff2) format("woff2")}
+@font-face{font-family:"S-Core Dream";font-weight:800 900;src:url(fonts/SCDreamBlack.woff2) format("woff2")}
+:root{--bg:#f3f7fc;--ink:#0f172a;--mute:#64748b;--sky:#0284c7;--violet:#7c3aed;--lime:#65a30d;--blue:#2563eb;--slate:#64748b}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:var(--ink);font-family:"S-Core Dream",sans-serif;letter-spacing:-0.025em;word-break:keep-all}
+.stage{position:absolute;inset:0;overflow:hidden;background:radial-gradient(1100px 700px at 85% 10%,#e6f0ff 0%,transparent 60%),radial-gradient(900px 600px at 5% 95%,#f1eaff 0%,transparent 60%),var(--bg)}
+.dots{position:absolute;inset:-100px;background-image:radial-gradient(rgba(15,23,42,.08) 2px,transparent 2.5px);background-size:44px 44px}
+.scene{position:absolute;inset:0;opacity:0}
+.a{will-change:transform,opacity}
+em{font-style:normal;color:var(--violet)}
+/* hero */
+.hero .txt{position:absolute;left:130px;top:250px;width:900px}
+.eyebrow{font-size:30px;font-weight:700;color:var(--sky);letter-spacing:.02em;margin-bottom:30px;display:flex;align-items:center;gap:16px}
+.eyebrow::before{content:"";width:44px;height:4px;border-radius:2px;background:var(--sky);display:block}
+.big{font-size:92px;font-weight:900;line-height:1.2;letter-spacing:-0.045em}
+.sub{font-size:36px;font-weight:500;color:#334155;margin-top:36px;line-height:1.5}
+.hero .pic{position:absolute;left:1010px;top:200px;width:800px;border-radius:40px;overflow:hidden;box-shadow:0 40px 100px rgba(15,23,42,.18);border:10px solid #fff;background:#fff}
+.hero .pic img{display:block;width:100%}
+/* window scenes */
+.cap{position:absolute;left:110px;top:0;bottom:0;width:560px;display:flex;flex-direction:column;justify-content:center}
+.cap .num{font-size:26px;font-weight:700;color:var(--sky);letter-spacing:.04em;margin-bottom:22px}
+.cap h2{font-size:64px;font-weight:900;line-height:1.22;letter-spacing:-0.045em}
+.cap p{font-size:30px;font-weight:500;color:#475569;line-height:1.55;margin-top:30px}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.chip{font-size:24px;font-weight:700;padding:10px 20px;border-radius:999px;border:2px solid rgba(2,132,199,.35);color:var(--sky);background:rgba(2,132,199,.07)}
+.chip.v{border-color:rgba(124,58,237,.35);color:var(--violet);background:rgba(124,58,237,.07)}
+.win{position:absolute;left:720px;top:176px;width:1110px;border-radius:24px;overflow:hidden;background:#fff;border:1.5px solid #dbe3ee;box-shadow:0 40px 110px rgba(15,23,42,.18)}
+.win .bar{height:52px;display:flex;align-items:center;gap:10px;padding:0 22px;background:#f8fafc;border-bottom:1px solid #e2e8f0}
+.win .bar i{width:14px;height:14px;border-radius:50%;background:#cbd5e1;display:block}
+.win .bar i:nth-child(1){background:#fda4af}.win .bar i:nth-child(2){background:#fcd34d}.win .bar i:nth-child(3){background:#86efac}
+.win .bar span{margin-left:22px;flex:1;height:32px;border-radius:9px;background:#eef2f7;color:#64748b;font-size:19px;display:flex;align-items:center;padding:0 18px;font-weight:500}
+.win .view{position:relative;width:1110px;height:624px;overflow:hidden;background:#f3f7fc}
+.win .view img{position:absolute;left:0;top:0;transform-origin:0 0}
+.wide .win{left:340px;top:150px;width:1240px}
+.wide .win .view{width:1240px;height:698px}
+.wide .cap{left:340px;top:52px;bottom:auto;width:1500px;white-space:nowrap;flex-direction:row;align-items:baseline;gap:28px;justify-content:flex-start}
+.wide .cap h2{font-size:52px}
+.wide .cap .num{margin:0}
+.tag{position:absolute;padding:14px 24px;border-radius:16px;background:#fff;border:2.5px solid var(--violet);font-size:27px;font-weight:700;color:var(--violet);box-shadow:0 18px 50px rgba(15,23,42,.18);white-space:nowrap}
+.tag.sky{border-color:var(--sky);color:var(--sky)}
+/* levels */
+.head{position:absolute;left:0;right:0;top:118px;text-align:center}
+.head h2{font-size:76px;font-weight:900;letter-spacing:-0.045em}
+.head p{font-size:32px;color:#475569;margin-top:20px;font-weight:500}
+.lgrid{position:absolute;left:150px;right:150px;top:390px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.lv{height:400px;border-radius:30px;padding:36px 32px;border:3px solid;display:flex;flex-direction:column;background:#fff;box-shadow:0 24px 60px rgba(15,23,42,.08)}
+.lv img{width:104px;height:104px;border-radius:24px;background:#fff;box-shadow:0 6px 20px rgba(15,23,42,.08)}
+.lv strong{display:block;font-size:42px;font-weight:900;margin-top:26px}
+.lv .cr{display:inline-block;margin-top:12px;font-size:24px;font-weight:700;padding:6px 16px;border-radius:999px;color:#fff;align-self:flex-start}
+.lv p{font-size:25px;font-weight:700;line-height:1.45;margin-top:22px;color:#334155}
+.lv.p{border-color:#94a3b8;background:#f8fafc}.lv.p .cr{background:#64748b}.lv.p strong{color:#334155}
+.lv.l{border-color:#84cc16;background:#f7fee7}.lv.l .cr{background:#65a30d}.lv.l strong{color:#3f6212}
+.lv.t{border-color:#3b82f6;background:#eff6ff}.lv.t .cr{background:#2563eb}.lv.t strong{color:#1e40af}
+.lv.d{border-color:#8b5cf6;background:#f5f3ff}.lv.d .cr{background:#7c3aed}.lv.d strong{color:#5b21b6}
+/* flow */
+.fgrid{position:absolute;left:130px;right:130px;top:400px;display:grid;grid-template-columns:repeat(7,1fr);gap:20px}
+.st{height:300px;border-radius:26px;padding:28px 22px;background:#fff;border:2px solid #e2e8f0;box-shadow:0 20px 50px rgba(15,23,42,.07);display:flex;flex-direction:column;justify-content:space-between}
+.st b{font-size:22px;font-weight:700;color:var(--sky);letter-spacing:.04em}
+.st strong{font-size:33px;font-weight:900;line-height:1.25}
+.st span{font-size:20px;font-weight:500;color:#64748b;line-height:1.4}
+.st.hot{border-color:var(--violet)} .st.hot b{color:var(--violet)}
+.fline{position:absolute;left:130px;right:130px;top:740px;height:6px;border-radius:3px;background:linear-gradient(90deg,#94a3b8,#84cc16,#3b82f6,#8b5cf6);transform-origin:0 50%}
+/* outro */
+.outro{display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding-bottom:90px}
+.logo{display:flex;align-items:center;gap:30px}
+.logo img{width:140px;height:140px;border-radius:34px;background:#fff;box-shadow:0 20px 60px rgba(15,23,42,.14)}
+.logo .name{font-size:100px;font-weight:900;letter-spacing:-0.04em;text-align:left;line-height:1.05}
+.logo .name small{display:block;font-size:28px;letter-spacing:.06em;color:var(--sky);font-weight:700;margin-bottom:10px}
+.outro .line{font-size:52px;font-weight:900;margin-top:70px;letter-spacing:-0.04em}
+.pill{margin-top:56px;font-size:34px;font-weight:700;padding:22px 46px;border-radius:999px;background:var(--ink);color:#fff;letter-spacing:-0.02em}
+.outro .foot{margin-top:38px;font-size:26px;color:var(--mute);font-weight:500}
+.subs{position:absolute;left:0;right:0;bottom:44px;display:flex;justify-content:center;pointer-events:none}
+.subs span{font-size:40px;font-weight:700;line-height:1.35;color:#fff;background:rgba(15,23,42,.86);padding:14px 34px;border-radius:18px;text-align:center;max-width:1600px;box-shadow:0 10px 40px rgba(15,23,42,.25);letter-spacing:-0.025em}
+.progress{position:absolute;left:0;bottom:0;height:7px;background:linear-gradient(90deg,#94a3b8,#84cc16,#3b82f6,#8b5cf6)}
+</style></head>
+<body>
+<div class="stage" id="stage">
+  <div class="dots a" id="dots"></div>
+
+  <section class="scene hero" id="s-hero">
+    <div class="pic a" id="hero-pic"><img src="intro-scene.png"></div>
+    <div class="txt">
+      <div class="eyebrow a" data-in="0.3">중학생 AI 리터러시 수업 · 90분</div>
+      <div class="big a" data-in="0.7">가장 비싼 AI가<br>늘 <em>정답</em>일까?</div>
+      <div class="sub a" data-in="1.6">고르고, 묻고, 따지는 사람이<br>AI를 잘 쓰는 사람입니다</div>
+    </div>
+  </section>
+
+  <section class="scene" id="s-home">
+    <div class="cap">
+      <div class="num a" data-in="0.2">AI 잘 부려먹기</div>
+      <h2 class="a" data-in="0.4">문제에 맞는<br><em>도구</em>를<br>고르는 연습</h2>
+      <p class="a" data-in="0.8">학생과 선생님이 같은 첫 화면에서 시작해요.</p>
+      <div class="chips a" data-in="1.2"><span class="chip">도구 고르기</span><span class="chip">좋은 질문</span><span class="chip v">답 검증</span></div>
+    </div>
+    <div class="win a" data-win><div class="bar"><i></i><i></i><i></i><span>AI 잘 부려먹기 · 첫 화면</span></div><div class="view"><img id="v-home"></div></div>
+  </section>
+
+  <section class="scene" id="s-levels">
+    <div class="head"><h2 class="a" data-in="0.1">오늘 쓸 <em>4단계</em></h2><p class="a" data-in="0.4">일의 크기에 맞게 고르면, 크레딧도 아끼고 결과도 좋아져요.</p></div>
+    <div class="lgrid">
+      <div class="lv p a" data-in="0.7"><img src="level-person.png"><strong>사람 · 직접</strong><span class="cr">0 크레딧</span><p>AI에게 맡기면<br>안 되는 일</p></div>
+      <div class="lv l a" data-in="0.9"><img src="level-light.png"><strong>빠른 AI</strong><span class="cr">1 크레딧</span><p>단어 뜻, 제목 추천,<br>아이디어 뽑기</p></div>
+      <div class="lv t a" data-in="1.1"><img src="level-think.png"><strong>생각하는 AI</strong><span class="cr">2 크레딧</span><p>글 고쳐 쓰기,<br>조건 반영, 비교 설명</p></div>
+      <div class="lv d a" data-in="1.3"><img src="level-deep.png"><strong>깊게 파는 AI</strong><span class="cr">4 크레딧</span><p>긴 자료 분석,<br>오류 찾기, 근거 판단</p></div>
+    </div>
+  </section>
+
+  <section class="scene" id="s-flow">
+    <div class="head"><h2 class="a" data-in="0.1">45분 × 2차시, <em>7가지 활동</em></h2><p class="a" data-in="0.4">처음 생각과 마지막 결과를 비교하며 스스로 달라진 점을 확인해요.</p></div>
+    <div class="fgrid">
+      <div class="st a" data-in="0.6"><b>01</b><strong>사전<br>투표</strong><span>정답 없이<br>내 생각 먼저</span></div>
+      <div class="st a" data-in="0.75"><b>02</b><strong>워밍업<br>판별</strong><span>4단계 중<br>하나 고르기</span></div>
+      <div class="st hot a" data-in="0.9"><b>03</b><strong>블라인드<br>배틀</strong><span>어느 답이 좋은지<br>고른 뒤 공개</span></div>
+      <div class="st a" data-in="1.05"><b>04</b><strong>질문<br>업그레이드</strong><span>나쁜 질문을<br>직접 고쳐 쓰기</span></div>
+      <div class="st hot a" data-in="1.2"><b>05</b><strong>예산<br>챌린지</strong><span>크레딧 12로<br>미션 8개</span></div>
+      <div class="st a" data-in="1.35"><b>06</b><strong>최종<br>미션</strong><span>질문 → 검증<br>→ 재질문</span></div>
+      <div class="st a" data-in="1.5"><b>07</b><strong>결과<br>프로필</strong><span>능력 점수와<br>나의 유형</span></div>
+    </div>
+    <div class="fline a" id="fline"></div>
+  </section>
+
+  <section class="scene" id="s-teacher">
+    <div class="cap">
+      <div class="num a" data-in="0.2">선생님 화면</div>
+      <h2 class="a" data-in="0.4">버튼 한 번에<br><em>수업코드</em><br>완성</h2>
+      <p class="a" data-in="0.8">누가 들어왔는지, 지금 몇 명이 접속 중인지 실시간으로 보여요.</p>
+      <div class="chips a" data-in="1.2"><span class="chip">6글자 코드</span><span class="chip">입장 주소 복사</span><span class="chip">실시간 인원</span></div>
+    </div>
+    <div class="win a" data-win><div class="bar"><i></i><i></i><i></i><span>AI 잘 부려먹기 · 선생님 화면</span></div><div class="view"><img id="v-teacher"></div></div>
+  </section>
+
+  <section class="scene" id="s-student">
+    <div class="cap">
+      <div class="num a" data-in="0.2">학생 화면</div>
+      <h2 class="a" data-in="0.4">코드와<br><em>닉네임</em>만<br>있으면 입장</h2>
+      <p class="a" data-in="0.8">회원가입·로그인 없이, 진짜 이름 대신 닉네임으로 참여해요.</p>
+      <div class="chips a" data-in="1.2"><span class="chip v">개인정보 수집 없음</span><span class="chip">노트북 · 태블릿</span></div>
+    </div>
+    <div class="win a" data-win><div class="bar"><i></i><i></i><i></i><span>AI 잘 부려먹기 · 학생 입장</span></div><div class="view"><img id="v-student"></div></div>
+  </section>
+
+  <section class="scene wide" id="s-live">
+    <div class="cap"><div class="num a" data-in="0.1">진행 통제</div><h2 class="a" data-in="0.3">다 같이 넘어가고, <em>우리 반 선택</em>은 한눈에</h2></div>
+    <div class="win a" data-win><div class="bar"><i></i><i></i><i></i><span>AI 잘 부려먹기 · 진행 통제</span></div><div class="view"><img id="v-live"></div></div>
+    <div class="tag a" id="tag-live" style="left:1170px;top:228px">혼자 앞서갈 수 없어요 · 반 전체가 같은 속도로</div>
+  </section>
+
+  <section class="scene outro" id="s-outro">
+    <div class="logo a" data-in="0.1"><img src="logo.png"><div class="name"><small>AI 리터러시</small>AI 잘 부려먹기</div></div>
+    <div class="line a" data-in="0.6">고르고, 묻고, <em>따지는</em> 90분</div>
+    <div class="pill a" data-in="1.1">수업코드 하나로 반 전체가 함께</div>
+    <div class="foot a" data-in="1.5">설치 없이 브라우저에서 바로 · 회원가입 없이 닉네임만</div>
+  </section>
+  <div class="subs"><span id="sub"></span></div>
+  <div class="progress" id="prog"></div>
+</div>
+<script>
+const FPS = 30;
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
+const eout = t => 1 - Math.pow(1 - t, 3);
+const lerp = (a, b, t) => a + (b - a) * t;
+// 녹화 클립: 프레임 수, 프레임 가로 픽셀(1600 css px × DPR 2)
+const CLIPS = { home:{n:209,w:3200}, teacher:{n:368,w:3200}, student:{n:278,w:3200}, live:{n:373,w:3200} };
+// view: 1600x900 css 좌표의 [x,y,w] (h = w*9/16), 시작 → 끝으로 천천히 이동
+const SCENES = [
+  { id:'s-hero', dur:5.6 },
+  { id:'s-home', dur:7.4, img:'v-home', segs:[
+      { clip:'home', from:3.0, rate:0.4, len:7.4, view:[[0,0,1600],[300,320,1000]] } ] },
+  { id:'s-levels', dur:6.2 },
+  { id:'s-flow', dur:6.0 },
+  { id:'s-teacher', dur:8.4, img:'v-teacher', segs:[
+      { clip:'teacher', from:0.9, rate:1.3, len:8.4, view:[[280,0,1040],[240,260,1120]] } ] },
+  { id:'s-student', dur:7.6, img:'v-student', segs:[
+      { clip:'student', from:0.6, rate:1.12, len:7.6, view:[[260,0,1080],[300,20,1000]] } ] },
+  { id:'s-live', dur:9.0, img:'v-live', segs:[
+      { clip:'live', from:0.8, rate:1.22, len:9.0, view:[[220,20,1160],[240,40,1120]] } ] },
+  { id:'s-outro', dur:6.4 },
+];
+const XF = 0.6;
+let acc = 0; for (const s of SCENES) { s.start = acc; acc += s.dur - XF; }
+const TOTAL = acc + XF;
+window.TOTAL = TOTAL;
+function src(clip, i) { const c = CLIPS[clip]; i = Math.max(1, Math.min(c.n, i)); return `frames/${clip}/${String(i).padStart(5,'0')}.jpg`; }
+async function setImg(el, url) {
+  if (el.dataset.src === url) return;
+  el.dataset.src = url; el.src = url;
+  try { await el.decode(); } catch {}
+}
+const SUBS = [
+  [0.5,4.8,'가장 비싼 AI를 쓰면, AI를 잘 쓰는 걸까요?'],
+  [5.2,8.8,'‘AI 잘 부려먹기’는 중학생을 위한 AI 리터러시 수업 앱이에요.'],
+  [9.0,12.2,'문제에 맞는 도구를 고르고, 좋은 질문을 만들고, 답을 따져봐요.'],
+  [12.4,17.6,'사람이 직접 할 일부터 깊게 파는 AI까지, 4단계 중 알맞은 것을 골라요.'],
+  [17.8,22.8,'사전 투표, 블라인드 배틀, 예산 챌린지까지 90분 수업이 한 흐름으로 이어져요.'],
+  [23.1,26.9,'선생님은 버튼 한 번으로 수업코드를 만들고,'],
+  [27.0,30.6,'들어온 학생과 접속 인원을 실시간으로 확인해요.'],
+  [30.9,34.6,'학생은 수업코드와 닉네임만 입력하면 끝.'],
+  [34.7,37.9,'회원가입도, 개인정보도 받지 않아요.'],
+  [38.1,42.0,'선생님이 단계를 열면 반 전체 화면이 함께 넘어가고,'],
+  [42.1,46.0,'우리 반이 무엇을 골랐는지 막대그래프로 바로 보여줘요.'],
+  [46.5,51.8,'고르고, 묻고, 따지는 90분. ‘AI 잘 부려먹기’와 함께해요.'],
+];
+window.SUBS = SUBS;
+window.render = async function (t) {
+  { const cur = SUBS.find(x => t >= x[0] && t <= x[1]); const el = document.getElementById('sub');
+    if (cur) { el.textContent = cur[2]; const o = Math.min(clamp((t-cur[0])/0.25), clamp((cur[1]-t)/0.25)); el.parentElement.style.opacity = o; el.style.visibility='visible'; }
+    else { el.style.visibility='hidden'; } }
+  document.getElementById('prog').style.width = (t / TOTAL * 100) + '%';
+  document.getElementById('dots').style.transform = `translate(${-(t*5)%44}px, ${-(t*2.5)%44}px)`;
+  const waits = [];
+  for (const s of SCENES) {
+    const el = document.getElementById(s.id);
+    const lt = t - s.start;
+    if (lt < -0.01 || lt > s.dur + 0.01) { el.style.opacity = 0; el.style.display = 'none'; continue; }
+    el.style.display = '';
+    const fin = s === SCENES[0] ? 1 : clamp(lt / XF), fout = s === SCENES.at(-1) ? clamp((s.dur - lt) / 0.8) : clamp((s.dur - lt) / XF);
+    el.style.opacity = Math.min(fin, fout);
+    el.querySelectorAll('[data-in]').forEach(a => {
+      const p = eout(clamp((lt - parseFloat(a.dataset.in)) / 0.7));
+      a.style.opacity = p; a.style.transform = `translateY(${(1 - p) * 34}px)`;
+    });
+    const win = el.querySelector('[data-win]');
+    if (win) { const p = eout(clamp((lt - 0.15) / 0.9)); win.style.opacity = p; win.style.transform = `translateY(${(1-p)*50}px) scale(${lerp(.96,1,p)})`; }
+    if (s.id === 's-hero') {
+      const pic = document.getElementById('hero-pic'); const p = eout(clamp((lt - 0.2) / 1.2));
+      pic.style.opacity = p; pic.style.transform = `translate(${lerp(120, 0, p)}px, ${-lt*4}px) rotate(${lerp(3, 1.2, p)}deg) scale(${1 + lt*0.008})`;
+    }
+    if (s.id === 's-flow') { const p = ease(clamp((lt - 0.6) / 1.6)); document.getElementById('fline').style.transform = `scaleX(${p})`; document.getElementById('fline').style.opacity = 1; }
+    if (s.id === 's-live') { const tg = document.getElementById('tag-live'); const p = eout(clamp((lt-2.2)/0.6)); tg.style.opacity = p; tg.style.transform = `translateY(${(1-p)*20}px)`; }
+    if (s.segs) {
+      let off = 0, seg = s.segs[0];
+      for (const g of s.segs) { if (lt >= off) seg = g; off += g.len; }
+      let segStart = 0; for (const g of s.segs) { if (g === seg) break; segStart += g.len; }
+      const st = clamp(lt - segStart, 0, seg.len);
+      const frame = Math.round((seg.from + st * seg.rate) * FPS) + 1;
+      const img = document.getElementById(s.img);
+      const box = img.parentElement; const bw = box.clientWidth;
+      const k = ease(clamp(st / seg.len));
+      const [a, b] = seg.view;
+      const vx = lerp(a[0], b[0], k), vy = lerp(a[1], b[1], k), vw = lerp(a[2], b[2], k);
+      const sc = bw / vw;
+      const pxScale = 1600 / CLIPS[seg.clip].w;
+      img.style.width = CLIPS[seg.clip].w + 'px';
+      img.style.transform = `translate(${-vx*sc}px, ${-vy*sc}px) scale(${sc*pxScale})`;
+      waits.push(setImg(img, src(seg.clip, frame)));
+    }
+  }
+  await Promise.all(waits);
+};
+</script>
+</body></html>
